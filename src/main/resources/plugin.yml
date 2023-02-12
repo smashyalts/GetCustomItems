@@ -1,0 +1,8 @@
+name: CustomItems
+version: '${project.version}'
+main: customitems.customitems.CustomItems
+api-version: 1.19
+commands:
+  getcustomitems:
+    usage: /<command> [SOL,SOD,FireExtinguisher]
+    permission: customitems.admin

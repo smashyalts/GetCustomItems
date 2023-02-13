@@ -9,21 +9,36 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 
-public class GetCustomItems extends CustomItemsList implements CommandExecutor {
+public class GetCustomItems implements CommandExecutor {
 
+    private CustomItemsList ItemLIST = new CustomItemsList();
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (sender instanceof Player && sender.hasPermission("customitems.admin")) {
-
-            if (command.getName().equalsIgnoreCase("getcustomitems") && Arrays.toString(args).equalsIgnoreCase("SOL")) {
-                    ((Player) sender).getInventory().addItem(SOLItem); }
-            else if (command.getName().equalsIgnoreCase("getcustomitems") && Arrays.toString(args).equalsIgnoreCase("SOD")) {
-                    ((Player) sender).getInventory().addItem(SODItem); }
-            else if (command.getName().equalsIgnoreCase("getcustomitems") && Arrays.toString(args).equalsIgnoreCase("FireExtinguisher")) {
-                ((Player) sender).getInventory().addItem(FireExtinguisher);
-            }
-            }
-         return true;
+        if (!(sender instanceof Player)) {
+            return true;
         }
+        Player player = (Player) sender;
+
+        if (!sender.hasPermission("customitems.admin")) {
+            player.sendMessage("You have not provided sufficient permissions, missing customitems.admin");
+            return true;
+        }
+
+        if (args.length == 0) {
+            player.sendMessage("You have not provided sufficient args, expecting 1, received 0");
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("SOL")) {
+            player.getInventory().addItem(ItemLIST.ScrollOfLevitation());
+        }
+        else if (args[0].equalsIgnoreCase("SOD")) {
+            player.getInventory().addItem(ItemLIST.SwordOfDestiny());
+        }
+        else if (args[0].equalsIgnoreCase("FireExtinguisher")) {
+            player.getInventory().addItem(ItemLIST.FireExtinguisher());
+        }
+        return true;
     }
+}

@@ -9,7 +9,6 @@ public final class CustomItems extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
         Bukkit.getServer().getPluginManager().registerEvents(new CustomItemEvents(), this);
         getCommand("getcustomitems").setExecutor(new GetCustomItems());
 

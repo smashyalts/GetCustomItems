@@ -21,7 +21,7 @@ public class CustomItemEvents extends CustomItemsList implements Listener {
     @EventHandler
     public void UseSOD (PlayerInteractAtEntityEvent e) {
         Damageable victim = (Damageable) e.getRightClicked();
-        if (e.getPlayer().getActiveItem().getItemMeta().equals(SODMeta) && e.getHand() == HAND) {
+        if (e.getPlayer().getActiveItem().getItemMeta().equals(SwordOfDestiny().getItemMeta()) && e.getHand() == HAND) {
             if (e.getRightClicked() instanceof Damageable) {
                 victim.setHealth(0);
             }
@@ -29,7 +29,7 @@ public class CustomItemEvents extends CustomItemsList implements Listener {
     }
     @EventHandler
     public void UseSOL (PlayerInteractEvent e) {
-        if (e.getItem().getItemMeta().equals(SOLMeta) && Objects.equals(e.getHand(), EquipmentSlot.HAND) && e.getAction().isRightClick()) {
+        if (e.getItem().getItemMeta().equals(ScrollOfLevitation().getItemMeta()) && Objects.equals(e.getHand(), EquipmentSlot.HAND) && e.getAction().isRightClick()) {
             e.getPlayer().getActiveItem().subtract(1);
             e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 10, 1));
         }
@@ -37,7 +37,7 @@ public class CustomItemEvents extends CustomItemsList implements Listener {
     @EventHandler
     public void UseFireExtinguisher (PlayerInteractAtEntityEvent e) {
         Damageable victim = (Damageable) e.getRightClicked();
-        if (e.getPlayer().getActiveItem().getItemMeta().equals(FireMeta) && e.getHand() == HAND) {
+        if (e.getPlayer().getActiveItem().getItemMeta().equals(FireExtinguisher().getItemMeta()) && e.getHand() == HAND) {
             if (e.getRightClicked() instanceof Damageable) {
                 victim.setFireTicks(0);
             }

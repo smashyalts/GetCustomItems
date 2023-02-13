@@ -9,30 +9,35 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.Collections;
 
 public class CustomItemsList {
-    protected ItemStack SODItem;
-    ItemMeta SODMeta;
-    ItemMeta SOLMeta;
-    ItemMeta FireMeta;
-    protected ItemStack FireExtinguisher;
-    protected ItemStack SOLItem;
-    public void SwordOfDestiny () {
-        Component SODLore = Component.text(ChatColor.DARK_RED + "This sword has the power to defeat any enemy with ease");
-        SODMeta.lore(Collections.singletonList(SODLore));
-        Component SODDisplay = Component.text(ChatColor.AQUA + "Sword Of Destiny");
-        SODMeta.displayName(SODDisplay);
-        SODItem.setItemMeta(SODMeta);
-        SODItem.setType(Material.DIAMOND_SWORD);
+
+    public ItemStack SwordOfDestiny () {
+        ItemStack item = new ItemStack(Material.DIAMOND_SWORD);
+        ItemMeta itemMeta = item.getItemMeta();
+        Component itemLore = Component.text(ChatColor.DARK_RED + "This sword has the power to defeat any enemy with ease");
+        itemMeta.lore(Collections.singletonList(itemLore));
+        Component itemDisplay = Component.text(ChatColor.AQUA + "Sword Of Destiny");
+        itemMeta.displayName(itemDisplay);
+        item.setItemMeta(itemMeta);
+        return item;
     }
-    public void ScrollOfLevitation() {
-        Component SOLLore = Component.text(ChatColor.DARK_RED + "This scroll has the power to make u levitate");
-        Component SOLDisplay = Component.text(ChatColor.AQUA + "Scroll of Levitation");
-        SOLItem.setItemMeta(SOLMeta);
-        SOLItem.setType(Material.PAPER);
+    public ItemStack ScrollOfLevitation () {
+        ItemStack item = new ItemStack(Material.PAPER);
+        ItemMeta itemMeta = item.getItemMeta();
+        Component itemLore = Component.text(ChatColor.DARK_RED + "This scroll has the power to make u levitate");
+        Component itemDisplay = Component.text(ChatColor.AQUA + "Scroll of Levitation");
+        itemMeta.lore(Collections.singletonList(itemLore));
+        itemMeta.displayName(itemDisplay);
+        item.setItemMeta(itemMeta);
+        return item;
     }
-    public void FireExtinguisher() {
-        Component FireLore = Component.text(ChatColor.DARK_RED + "This item has the power to put out fires");
-        Component FireDisplay = Component.text(ChatColor.AQUA + "Fire Extinguisher");
-        FireExtinguisher.setItemMeta(FireMeta);
-        FireExtinguisher.setType(Material.REDSTONE);
+    public ItemStack FireExtinguisher () {
+        ItemStack item = new ItemStack(Material.REDSTONE);
+        ItemMeta itemMeta = item.getItemMeta();
+        Component itemLore = Component.text(ChatColor.DARK_RED + "This item has the power to put out fires");
+        Component itemDisplay = Component.text(ChatColor.AQUA + "Fire Extinguisher");
+        itemMeta.lore(Collections.singletonList(itemLore));
+        itemMeta.displayName(itemDisplay);
+        item.setItemMeta(itemMeta);
+        return item;
     }
 }
